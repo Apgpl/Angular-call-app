@@ -1,0 +1,65 @@
+ <h1> Call-log App </h1> 
+
+
+<form [formGroup]="calllogForm" (ngSubmit)="onCalllogFormSubmit()">
+
+    <table cellspacing="1" cellpadding="1" border="1" style="display: inline-block;"> 
+
+ <tr>
+
+     <select formControlName="calllogNumbers" id="calllogNumbers" multiple  [(ngModel)]='calllog.phoneNumber'  (change)="selectedPhoneNumber(calllog.phoneNumber)">
+        <option *ngFor="let calllog of calllogs ; let i = index" [value]="calllogs[i]" >
+
+            {{calllogs[i]}}
+            
+        </option>
+
+    </select>
+
+  </tr>
+
+
+
+    </table>
+
+    <table cellspacing="10" cellpadding="10" border="1" style="float:right">
+
+          <th colspan="4" style="text-align: center;"> Call Details</th>
+        <tr>
+            <td>Number</td>
+            <td><input formControlName="phoneNumber" ></td>
+       <!--      <label *ngIf="productForm.get('productId').invalid && processValidation" [ngClass]="'error'">Product Id is
+                required. </label> -->
+                <td>Date</td>
+                <td><input formControlName="callDate" ></td> 
+        </tr>
+        <tr>
+            <td>Start Time</td>
+            <td><input formControlName="startDate"></td>
+       <!--  <label *ngIf="productForm.get('productName').invalid && processValidation" [ngClass]="'error'"> Product Name
+                is required. </label>   --> 
+                <td>End Time</td>
+                <td><input formControlName="endDate"></td>
+        </tr>
+        <tr>
+            <td>Purpose</td>
+            <td><input formControlName="purpose"></td>
+         <!--   <label *ngIf="productForm.get('quantityOnHand').invalid && processValidation" [ngClass]="'error'"> Quantity
+                in hand is required. </label> --> 
+            <td>Comments</td>
+            <td><input formControlName="comments"></td>
+       
+            </tr>
+
+        <tr>
+            <td> </td> 
+            <td> 
+                <button>{{ calllogIdToUpdate === "-1" ? "Save" : "Update" }} </button>
+            </td>
+            <td> </td> 
+            <td><button (click)="resetForm()">Cancel</button></td>
+        </tr>
+
+    </table>
+
+</form>

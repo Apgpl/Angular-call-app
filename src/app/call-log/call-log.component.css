@@ -1,0 +1,57 @@
+body
+{
+		width:800px;
+		height:670px;
+		font-family:comic sans ms;
+		font-size:24;
+}
+th
+{
+		color:#E4E4E4;
+		background-color: purple;
+		width:760px;
+		height:40px;
+}
+.callhistory
+{
+		color:#E4E4E4;
+		background-color: purple;
+		width:220px;
+		height:40px;
+}
+.classdetails
+{
+		color:#E4E4E4;
+		background-color: purple;
+		width:760px;
+		height:40px;
+}
+input
+{
+		width:250px;
+		height:40px;
+}
+select
+{
+		width:220px;
+		height:390px;
+		font-size:30;
+}
+.save
+{
+		width:160px;
+		height:40px;
+		background-color: #1abc95;
+}
+.cancel
+{
+		width:160px;
+		height:40px;
+		background-color: #E54D48;
+}
+.new
+{
+		width:160px;
+		height:40px;
+		background-color: #003B72;
+}
