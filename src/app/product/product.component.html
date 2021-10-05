@@ -1,0 +1,67 @@
+<h2>Product {{ productIdToUpdate === -1 ? " Add Form" : " Update Form" }}</h2>
+<form [formGroup]="productForm" (ngSubmit)="onProductFormSubmit()">
+    <table cellspacing="10" cellpadding="10">
+        <tr>
+            <td>Product Id</td>
+            <td><input formControlName="productId" [attr.disabled] = "productIdToUpdate != -1 ? 'disabled' : null"></td>
+       <!--      <label *ngIf="productForm.get('productId').invalid && processValidation" [ngClass]="'error'">Product Id is
+                required. </label> -->
+                
+        </tr>
+        <tr>
+            <td>Product Name</td>
+            <td><input formControlName="productName"></td>
+       <!--  <label *ngIf="productForm.get('productName').invalid && processValidation" [ngClass]="'error'"> Product Name
+                is required. </label>   --> 
+        </tr>
+        <tr>
+            <td>Quantity On Hand</td>
+            <td><input formControlName="quantityOnHand"></td>
+         <!--   <label *ngIf="productForm.get('quantityOnHand').invalid && processValidation" [ngClass]="'error'"> Quantity
+                in hand is required. </label> --> 
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input formControlName="price"></td>
+           <!--  <label *ngIf="productForm.get('price').invalid && processValidation" [ngClass]="'error'"> Price
+                in hand is required. </label> --> 
+        </tr>
+        <tr>
+            <td> 
+                <button>{{ productIdToUpdate === -1 ? "SaveProduct" : "UpdateProduct" }} </button>
+            </td>
+            <td><button (click)="resetForm()">Clear</button></td>
+
+        </tr>
+    </table>
+
+</form>
+
+<h3>Product App</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity on Hand</th>
+            <th scope="col">Price</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Add to Cart</th>
+            <th scope="col">Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <th scope="row">{{ product.productId }}</th>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.quantityOnHand }}</td>
+            <td>{{ product.price }}</td>
+            <td><button class="alert alert-danger" (click)="deleteProduct(product.productId)">Delete</button></td>
+            <td><button class="alert alert-danger" (click)="editProduct(product.productId)">Edit</button></td>
+            <td><button class="alert alert-danger" (click)="addToCart(product.productId)">Add to Cart</button></td>
+            <td><button class="alert alert-danger" (click)="remove(product.productId)">Remove</button></td>
+
+        </tr>
+    </tbody>
+</table>
